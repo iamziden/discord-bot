@@ -8,6 +8,21 @@ class Admin(commands.Cog):
 
     def __init__(self, client):
         self.client = client
+        
+    # Recieve developer badge.
+    @nextcord.slash_command(
+        name="activedevbadge",
+        description="Claim your active developer badge. *Note: bot owner only*"
+    )
+    async def activedevbadge(
+        self,
+        interaction: nextcord.Interaction
+    ):
+        if not self.check_any(commands.is_owner()):
+            await interaction.response.send_message("You are not the server owner. This command is for bot owners only.", ephemeral=True)
+            return
+        
+        await interaction.response.send_message("Claim your active developer badge here: https://discord.com/developers/active-developer")
 
     # Kick a user.
     @nextcord.slash_command(
