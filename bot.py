@@ -7,8 +7,6 @@ import os
 # USER: Change YOUR_TOKEN_HERE in bot_token.py
 from bot_token import bot_token
 
-from discord_ids import testServerId
-
 intents = nextcord.Intents.default()
 intents.members = True
 intents.message_content = True
@@ -40,6 +38,7 @@ async def help_command(interaction: nextcord.Interaction):
         "/ban - Ban a user from the server.\n"
         "/giverole - Give a specific role to a specific user.\n"
         "/removerole - Remove a specific role from a specific user.\n"
+        "/activedevbadge"
     )
     await interaction.response.send_message(help_message, ephemeral=True)  # Send as an ephemeral message
 
